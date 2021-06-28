@@ -1,8 +1,13 @@
-﻿namespace PayMe
+﻿using Xamarin.Forms;
+
+[assembly: ExportFont("Fluo Gums.ttf")]
+[assembly: ExportFont("Lucky Boss.ttf")]
+[assembly: ExportFont("Sweet Chili.ttf")]
+namespace PayMe
 {
-    using System;
+    using PayMe.Views;
     using Xamarin.Forms;
-    using Xamarin.Forms.Xaml;
+
 
     public partial class App : Application
     {

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="PayMe.Views.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="True">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.7*" />
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Label
+            Padding="30"
+            Grid.ColumnSpan="2"
+            FontAttributes="Bold"
+            FontSize="Title"
+            Text="PAY ME"
+            TextColor="DodgerBlue" 
+            FontFamily="Fluo Gums"/>
+        <Button
+            Padding="20"
+            x:Name="addButton"
+            VerticalOptions="Start"
+            Grid.Column="2"
+            BackgroundColor="Transparent"
+            Clicked="addButton_Clicked"
+            FontSize="45" 
+            Text="+"
+            FontFamily="Sweet Chili" />
+        <ListView ItemSelected="listView_ItemSelected" 
+            SelectedItem="{Binding .}" 
+            x:Name="listView" Grid.Row="1" Grid.ColumnSpan="3" SeparatorVisibility="None" Margin="50">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label FontFamily="Lucky Boss" HorizontalOptions="StartAndExpand" Text="{Binding Name}" FontSize="Large" TextColor="Black" VerticalOptions="Center"/>
+                            <Label FontFamily="Sweet Chili"  Text="{Binding Amount}" FontSize="Large" TextColor="{Binding Color}" VerticalOptions="Center"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button
+            x:Name="logoutButton"
+            Clicked="logoutButton_Clicked"
+            Text="Logout" 
+            Grid.Row="2"
+            Grid.Column="1"/>
+    </Grid>
+</ContentPage>
