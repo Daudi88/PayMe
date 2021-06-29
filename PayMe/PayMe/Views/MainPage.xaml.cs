@@ -9,6 +9,9 @@
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : ContentPage
     {
+        /// <summary>
+        /// Show mainpage
+        /// </summary>
         public MainPage()
         {
             InitializeComponent();
@@ -26,16 +29,29 @@
         }
 
 
-
+        /// <summary>
+        /// What happens when you click the button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void addButton_Clicked(object sender, EventArgs e)
         {
             DisplayAlert("Add New Loan", "Coming soon...", "OK");
         }
+        /// <summary>
+        /// What happens when you click the logout button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void logoutButton_Clicked(object sender, EventArgs e)
         {
             DisplayAlert("Logout", "Coming soon...", "OK");
         }
-
+        /// <summary>
+        /// When you pick a item in the list to view.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void listView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if (listView.SelectedItem == null)
