@@ -28,7 +28,6 @@
 
         }
 
-
         /// <summary>
         /// What happens when you click the button.
         /// </summary>
@@ -38,6 +37,7 @@
         {
             DisplayAlert("Add New Loan", "Coming soon...", "OK");
         }
+
         /// <summary>
         /// What happens when you click the logout button.
         /// </summary>
@@ -47,6 +47,7 @@
         {
             DisplayAlert("Logout", "Coming soon...", "OK");
         }
+
         /// <summary>
         /// When you pick a item in the list to view.
         /// </summary>
