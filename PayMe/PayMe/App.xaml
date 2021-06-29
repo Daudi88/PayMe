@@ -3,6 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PayMe.App">
     <Application.Resources>
-
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="SweetChili.ttf#SweetChili"/>
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
