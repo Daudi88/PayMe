@@ -9,6 +9,8 @@
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : ContentPage
     {
+        private List<Loan> loans = new List<Loan>();
+
         /// <summary>
         /// Show mainpage
         /// </summary>
@@ -16,13 +18,13 @@
         {
             InitializeComponent();
 
-            var loans = new List<Loan>
-            {
-                new Loan(-250) { Name = "Sanjin", Description = "Pizza" },
-                new Loan(-150) { Name = "Sanjin", Description = "Cola" },
-                new Loan(-50) { Name = "Sanjin", Description = "Snus" },
-                new Loan(50) { Name = "Brorsan", Description = "NOCCO" },
-            };
+
+
+            loans.Add(new Loan(-250) { Name = "Sanjin", Description = "Pizza" });
+            loans.Add(new Loan(-150) { Name = "Sanjin", Description = "Cola" });
+            loans.Add(new Loan(-50) { Name = "Sanjin", Description = "Snus" });
+            loans.Add(new Loan(50) { Name = "Brorsan", Description = "NOCCO" });    
+            
 
             listView.ItemsSource = loans;
 
@@ -35,7 +37,9 @@
         /// <param name="e"></param>
         private void addButton_Clicked(object sender, EventArgs e)
         {
-            DisplayAlert("Add New Loan", "Coming soon...", "OK");
+            loans.Add(new Loan(200) { Name = "Dennis", Description = "Öl" });
+            listView.ItemsSource = loans;
+           // DisplayAlert("Add New Loan", "Coming soon...", "OK");
         }
 
         /// <summary>
