@@ -41,7 +41,7 @@
         }
 
         /// <summary>
-        /// What happens when you click the logout button.
+        /// What happens when you click the logout button.m
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
