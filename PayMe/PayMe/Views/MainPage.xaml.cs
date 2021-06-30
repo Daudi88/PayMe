@@ -1,4 +1,6 @@
-﻿namespace PayMe.Views
+﻿using System.Linq;
+
+namespace PayMe.Views
 {
     using PayMe.Models;
     using System;
@@ -37,7 +39,7 @@
         private void addButton_Clicked(object sender, EventArgs e)
         {
             // A dummy loan is added.
-            loans.Add(new Loan(200) { Name = "Dennis", Description = "Öl" });
+            loans.Insert(0,new Loan(200) { Name = "Dennis", Description = "Öl" });
         }
 
         /// <summary>
