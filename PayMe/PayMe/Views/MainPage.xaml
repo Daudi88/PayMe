@@ -23,7 +23,7 @@
             TextColor="DodgerBlue" 
             FontFamily="Fluo Gums"/>
         <Button
-            Command="{Binding AddNewLoan}"
+            Command="{Binding AddCommand}"
             Padding="20"
             x:Name="addButton"
             VerticalOptions="Start"

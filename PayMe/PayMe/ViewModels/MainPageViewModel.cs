@@ -33,7 +33,8 @@ namespace PayMe.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
-        public ICommand AddCommand;
+        public ICommand AddCommand { get; private set; }
+        
 
         public MainPageViewModel()
         {
