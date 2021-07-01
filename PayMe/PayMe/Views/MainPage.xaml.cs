@@ -23,12 +23,12 @@ namespace PayMe.Views
             InitializeComponent();
 
             // A few dummy loans are added to show something.
-            loans.Add(new Loan(-250) { Name = "Sanjin", Description = "Pizza" });
-            loans.Add(new Loan(-150) { Name = "Sanjin", Description = "Cola" });
-            loans.Add(new Loan(-50) { Name = "Sanjin", Description = "Snus" });
-            loans.Add(new Loan(50) { Name = "Brorsan", Description = "NOCCO" });
+            //loans.Add(new Loan(-250) { Name = "Sanjin", Description = "Pizza" });
+            //loans.Add(new Loan(-150) { Name = "Sanjin", Description = "Cola" });
+            //loans.Add(new Loan(-50) { Name = "Sanjin", Description = "Snus" });
+            //loans.Add(new Loan(50) { Name = "Brorsan", Description = "NOCCO" });
 
-            listView.ItemsSource = loans;
+            //listView.ItemsSource = loans;
         }
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace PayMe.Views
         private void addButton_Clicked(object sender, EventArgs e)
         {
             // A dummy loan is added.
-            loans.Insert(0,new Loan(200) { Name = "Dennis", Description = "Öl" });
+          // loans.Insert(0,new Loan(200) { Name = "Dennis", Description = "Öl" });
         }
 
         /// <summary>
