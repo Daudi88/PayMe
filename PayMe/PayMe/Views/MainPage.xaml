@@ -49,7 +49,7 @@
         </ListView>
         <Button
             x:Name="logoutButton"
-            Clicked="logoutButton_Clicked"
+            Command="{Binding LogOutCommand}"
             Text="Logout" 
             Grid.Row="2"
             Grid.Column="1"/>

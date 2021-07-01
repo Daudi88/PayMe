@@ -23,15 +23,6 @@ namespace PayMe.Views
             InitializeComponent();
         }
 
-        /// <summary>
-        /// What happens when you click the logout button.m
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void logoutButton_Clicked(object sender, EventArgs e)
-        {
-            DisplayAlert("Logout", "Coming soon...", "OK");
-        }
 
         /// <summary>
         /// When you pick a item in the list to view.

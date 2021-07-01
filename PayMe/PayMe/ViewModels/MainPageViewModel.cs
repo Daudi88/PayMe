@@ -34,7 +34,8 @@ namespace PayMe.ViewModels
         }
 
         public ICommand AddCommand { get; private set; }
-        
+        public ICommand LogOutCommand { get; private set; }
+
 
         public MainPageViewModel()
         {
@@ -48,11 +49,17 @@ namespace PayMe.ViewModels
 
 
             AddCommand = new Command(AddNewLoan);
+            LogOutCommand = new Command(LogOut);
         }
 
         public async void AddNewLoan()
         {
             Loans.Insert(0, new Loan(200) { Name = "Dennis", Description = "Öl" });
+        }
+
+        public void LogOut()
+        {
+            App.Current.MainPage.DisplayAlert("Logout", "Coming soon...", "OK");
         }
     }
 }
