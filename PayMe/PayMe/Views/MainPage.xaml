@@ -32,7 +32,7 @@
             FontSize="45" 
             Text="+"
             FontFamily="Sweet Chili" />
-        <ListView ItemSelected="listView_ItemSelected" 
+        <ListView 
             ItemsSource="{Binding Loans}"
             SelectedItem="{Binding SelectedLoan}" 
             x:Name="listView" Grid.Row="1" Grid.ColumnSpan="3" SeparatorVisibility="None" Margin="50">

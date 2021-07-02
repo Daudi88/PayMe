@@ -76,11 +76,11 @@ namespace PayMe.ViewModels
 
         private async void ItemSelected(Loan selectedLoan)
         {
-            if (SelectedLoan == null)
+            if (selectedLoan == null)
                 return;
 
             await App.Current.MainPage.DisplayAlert("Details", selectedLoan.Description, "OK");
-            SelectedLoan = null;
+            selectedLoan = null;
         }
     }
 }
