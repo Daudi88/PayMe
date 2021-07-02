@@ -10,7 +10,7 @@ namespace PayMe.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        // An ObservableCollection listens to changes and updates itself.
+        // An ObservableCollection listens to changes and updates itself in the view.
         private ObservableCollection<Loan> loans;
         public ObservableCollection<Loan> Loans
         {
@@ -25,6 +25,10 @@ namespace PayMe.ViewModels
             }
         }
 
+        /// <summary>
+        /// A method that takes care of changing a property.
+        /// </summary>
+        /// <param name="name">Name of the property.</param>
         private void OnPropertyChanged(string name)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
@@ -64,16 +68,29 @@ namespace PayMe.ViewModels
             LogOutCommand = new Command(LogOut);
         }
 
+        /// <summary>
+        /// Inserts a new loan at the top of the list
+        /// (Not fully implemented yet. Adds a dummy loan right now).
+        /// </summary>
         public void AddNewLoan()
         {
             Loans.Insert(0, new Loan(200) { Name = "Dennis", Description = "Öl" });
         }
 
+        /// <summary>
+        /// Logs the user out (Not fully implemented yet. Shows an alert right now).
+        /// </summary>
         public async void LogOut()
         {
             await App.Current.MainPage.DisplayAlert("Logout", "Coming soon...", "OK");
         }
 
+        /// <summary>
+        /// Lets the user see a detailed page about the loan
+        /// (Not fully implemented yet. Shows an alert with
+        /// some details right now)
+        /// </summary>
+        /// <param name="selectedLoan">The selected loan.</param>
         private async void ItemSelected(Loan selectedLoan)
         {
             if (selectedLoan == null)
