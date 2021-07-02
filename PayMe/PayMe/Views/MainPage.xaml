@@ -34,7 +34,7 @@
             FontFamily="Sweet Chili" />
         <ListView ItemSelected="listView_ItemSelected" 
             ItemsSource="{Binding Loans}"
-            SelectedItem="{Binding .}" 
+            SelectedItem="{Binding SelectedLoan}" 
             x:Name="listView" Grid.Row="1" Grid.ColumnSpan="3" SeparatorVisibility="None" Margin="50">
             <ListView.ItemTemplate>
                 <DataTemplate>

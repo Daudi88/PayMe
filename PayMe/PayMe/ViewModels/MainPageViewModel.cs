@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using PayMe.Models;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
-using System.Collections.ObjectModel;
-using PayMe.Models;
 
 namespace PayMe.ViewModels
 {
@@ -33,6 +30,21 @@ namespace PayMe.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
+        private Loan selectedLoan;
+        public Loan SelectedLoan
+        {
+            get => selectedLoan;
+            set
+            {
+                if (value == selectedLoan)
+                    return;
+
+                selectedLoan = value;
+                OnPropertyChanged(nameof(SelectedLoan));
+                ItemSelected(SelectedLoan);
+            }
+        }
+
         public ICommand AddCommand { get; private set; }
         public ICommand LogOutCommand { get; private set; }
 
@@ -52,14 +64,23 @@ namespace PayMe.ViewModels
             LogOutCommand = new Command(LogOut);
         }
 
-        public async void AddNewLoan()
+        public void AddNewLoan()
         {
             Loans.Insert(0, new Loan(200) { Name = "Dennis", Description = "Öl" });
         }
 
-        public void LogOut()
+        public async void LogOut()
         {
-            App.Current.MainPage.DisplayAlert("Logout", "Coming soon...", "OK");
+            await App.Current.MainPage.DisplayAlert("Logout", "Coming soon...", "OK");
+        }
+
+        private async void ItemSelected(Loan selectedLoan)
+        {
+            if (SelectedLoan == null)
+                return;
+
+            await App.Current.MainPage.DisplayAlert("Details", selectedLoan.Description, "OK");
+            SelectedLoan = null;
         }
     }
 }
