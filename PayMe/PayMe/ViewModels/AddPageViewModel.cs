@@ -28,7 +28,7 @@ namespace PayMe.ViewModels
             }
         }
 
-        ICommand CancelCommand { get; set; }
+        public ICommand CancelCommand { get; set; }
 
         /// <summary>
         /// A method that takes care of changing a property.
@@ -41,7 +41,12 @@ namespace PayMe.ViewModels
 
         public AddPageViewModel()
         {
-            
+            CancelCommand = new Command(Cancel);
+        }
+
+        public async void Cancel()
+        {
+            await App.Current.MainPage.Navigation.PopModalAsync();
         }
     }
 }
