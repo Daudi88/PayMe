@@ -1,4 +1,5 @@
 ﻿using PayMe.Models;
+using PayMe.Views;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
@@ -72,9 +73,11 @@ namespace PayMe.ViewModels
         /// Inserts a new loan at the top of the list
         /// (Not fully implemented yet. Adds a dummy loan right now).
         /// </summary>
-        public void AddNewLoan()
+        public async void AddNewLoan()
         {
-            Loans.Insert(0, new Loan(200) { Name = "Dennis", Description = "Öl" });
+            AddPage addPage = new AddPage();
+            await App.Current.MainPage.Navigation.PushModalAsync(addPage);
+            // Loans.Insert(0, new Loan(200) { Name = "Dennis", Description = "Öl" });
         }
 
         /// <summary>

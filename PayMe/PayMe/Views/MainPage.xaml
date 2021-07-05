@@ -21,7 +21,7 @@
             FontSize="Title"
             Text="PAY ME"
             TextColor="DodgerBlue" 
-            FontFamily="Fluo Gums"/>
+            />
         <Button
             Command="{Binding AddCommand}"
             Padding="20"
@@ -31,7 +31,7 @@
             BackgroundColor="Transparent"
             FontSize="45" 
             Text="+"
-            FontFamily="Sweet Chili" />
+            />
         <ListView 
             ItemsSource="{Binding Loans}"
             SelectedItem="{Binding SelectedLoan}" 
