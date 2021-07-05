@@ -7,9 +7,8 @@ using Xamarin.Forms;
 
 namespace PayMe.ViewModels
 {
-    public class MainPageViewModel : INotifyPropertyChanged
+    public class MainPageViewModel : BaseViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
 
         // An ObservableCollection listens to changes and updates itself in the view.
         private ObservableCollection<Loan> loans;
@@ -24,15 +23,6 @@ namespace PayMe.ViewModels
                 loans = value;
                 OnPropertyChanged(nameof(Loans));
             }
-        }
-
-        /// <summary>
-        /// A method that takes care of changing a property.
-        /// </summary>
-        /// <param name="name">Name of the property.</param>
-        private void OnPropertyChanged(string name)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
         private Loan selectedLoan;

@@ -9,13 +9,13 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Vem vill du låna av/till?"/>
-            <Entry x:Name="nameEntry"/>
+            <Entry x:Name="nameEntry" Placeholder="Name"/>
             <Label Text="Ange belopp:"/>
-            <Entry x:Name="amountEntry"/>
+            <Entry x:Name="amountEntry" Placeholder="Amount"/>
             <Label Text="Lånbeskrivning:"/>
-            <Entry x:Name="descriptionEntry" />
+            <Entry x:Name="descriptionEntry" Placeholder="Description"/>
             <Button Text="Cancel" Command="{Binding CancelCommand}"/>
-            <Button Text="Save" Command="{Binding SaveCommand}"/>
+            <Button Text="Save" Command="{Binding SaveCommand}" CommandParameter="nameEntry, amountEntry, descriptionEntry"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
