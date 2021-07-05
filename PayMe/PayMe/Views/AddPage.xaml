@@ -4,9 +4,9 @@
              x:Class="PayMe.Views.AddPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Vem vill du låna av/till?"/>
+            <Label Text="Ange belopp:"/>
+            <Label Text="Lånbeskrivning:"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
