@@ -11,12 +11,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Fonts\Bangers.ttf" />
     <None Remove="Resources\Fonts\Fluo Gums.ttf" />
     <None Remove="Resources\Fonts\Lucky Boss.ttf" />
     <None Remove="Resources\Fonts\Sweet Chili.ttf" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Fonts\Bangers.ttf" />
     <EmbeddedResource Include="Resources\Fonts\Fluo Gums.ttf" />
     <EmbeddedResource Include="Resources\Fonts\Lucky Boss.ttf" />
     <EmbeddedResource Include="Resources\Fonts\Sweet Chili.ttf" />
