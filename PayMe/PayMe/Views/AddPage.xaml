@@ -14,6 +14,7 @@
             <Entry/>
             <Label Text="Lånbeskrivning:"/>
             <Entry/>
+            <Button Text="Cancel" Command="{Binding CancelCommand}"/>
             <Button Text="Save" Command="{Binding SaveCommand}"/>
         </StackLayout>
     </ContentPage.Content>

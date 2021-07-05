@@ -7,7 +7,7 @@
     xmlns:local="clr-namespace:PayMe.ViewModels"
     ios:Page.UseSafeArea="True">
     <ContentPage.BindingContext>
-        <local:MainPageViewModel/>
+        <local:MainPageViewModel />
     </ContentPage.BindingContext>
     <Grid>
         <Grid.RowDefinitions>
@@ -16,33 +16,48 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Label
-            Padding="30"
             Grid.ColumnSpan="2"
+            Padding="30"
             FontAttributes="Bold"
+            FontFamily="Bangers"
             FontSize="Title"
             Text="PAY ME"
-            TextColor="DodgerBlue"
-            FontFamily="Bangers"/>
+            TextColor="DodgerBlue" />
         <Button
-            Command="{Binding AddCommand}"
-            Padding="20"
             x:Name="addButton"
-            VerticalOptions="Start"
             Grid.Column="2"
+            Padding="20"
             BackgroundColor="Transparent"
-            FontSize="45" 
+            Command="{Binding AddCommand}"
+            FontFamily="Sweet Chili"
+            FontSize="45"
             Text="+"
-            FontFamily="Sweet Chili"/>
-        <ListView 
+            VerticalOptions="Start" />
+        <ListView
+            x:Name="listView"
+            Grid.Row="1"
+            Grid.ColumnSpan="3"
+            Margin="50"
             ItemsSource="{Binding Loans}"
-            SelectedItem="{Binding SelectedLoan}" 
-            x:Name="listView" Grid.Row="1" Grid.ColumnSpan="3" SeparatorVisibility="None" Margin="50">
+            SelectedItem="{Binding SelectedLoan}"
+            SeparatorVisibility="None">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Orientation="Horizontal">
-                            <Label FontFamily="Lucky Boss" HorizontalOptions="StartAndExpand" Text="{Binding Name}" FontSize="Large" TextColor="Black" VerticalOptions="Center"/>
-                            <Label FontFamily="Sweet Chili"  Text="{Binding Amount}" FontSize="Large" TextColor="{Binding Color}" VerticalOptions="Center"/>
+                            <Label
+                                FontFamily="Lucky Boss"
+                                FontSize="Large"
+                                HorizontalOptions="StartAndExpand"
+                                Text="{Binding Name}"
+                                TextColor="Black"
+                                VerticalOptions="Center" />
+                            <Label
+                                FontFamily="Sweet Chili"
+                                FontSize="Large"
+                                Text="{Binding Amount}"
+                                TextColor="{Binding Color}"
+                                VerticalOptions="Center" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
@@ -50,9 +65,9 @@
         </ListView>
         <Button
             x:Name="logoutButton"
-            Command="{Binding LogOutCommand}"
-            Text="Logout" 
             Grid.Row="2"
-            Grid.Column="1"/>
+            Grid.Column="1"
+            Command="{Binding LogOutCommand}"
+            Text="Logout" />
     </Grid>
 </ContentPage>

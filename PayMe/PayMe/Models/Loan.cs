@@ -23,7 +23,7 @@
                 Color = "Red";
             }
 
-            Amount = Math.Abs(amount);
+            Amount = amount;
         }
     }
 }
