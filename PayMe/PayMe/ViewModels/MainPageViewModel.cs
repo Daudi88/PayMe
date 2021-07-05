@@ -70,14 +70,11 @@ namespace PayMe.ViewModels
         }
 
         /// <summary>
-        /// Inserts a new loan at the top of the list
-        /// (Not fully implemented yet. Adds a dummy loan right now).
+        /// Opens a new page where the user can add a new loan
         /// </summary>
         public async void AddNewLoan()
         {
-            AddPage addPage = new AddPage();
-            await App.Current.MainPage.Navigation.PushModalAsync(addPage);
-            // Loans.Insert(0, new Loan(200) { Name = "Dennis", Description = "Öl" });
+            await App.Current.MainPage.Navigation.PushModalAsync(new AddPage());   
         }
 
         /// <summary>
