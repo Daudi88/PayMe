@@ -1,12 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:PayMe.ViewModels"
              x:Class="PayMe.Views.AddPage">
+    <ContentPage.BindingContext>
+        <local:AddPageViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Vem vill du låna av/till?"/>
+            <Entry/>
             <Label Text="Ange belopp:"/>
+            <Entry/>
             <Label Text="Lånbeskrivning:"/>
+            <Entry/>
+            <Button Text="Save" Command="{Binding SaveCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
