@@ -41,6 +41,7 @@ namespace PayMe.ViewModels
 
         public AddPageViewModel()
         {
+            SaveCommand = new Command(Save);
             CancelCommand = new Command(Cancel);
         }
 
@@ -48,5 +49,15 @@ namespace PayMe.ViewModels
         {
             await App.Current.MainPage.Navigation.PopModalAsync();
         }
+        
+        public ICommand SaveCommand { get; set; }
+        public async void Save()
+        {
+            await App.Current.MainPage.Navigation.PopModalAsync();
+
+        }
+
+        public int 
+       
     }
 }
