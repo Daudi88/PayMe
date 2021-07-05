@@ -3,7 +3,8 @@
     x:Class="PayMe.Views.MainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" xmlns:local="clr-namespace:PayMe.ViewModels"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:local="clr-namespace:PayMe.ViewModels"
     ios:Page.UseSafeArea="True">
     <ContentPage.BindingContext>
         <local:MainPageViewModel/>
@@ -20,8 +21,8 @@
             FontAttributes="Bold"
             FontSize="Title"
             Text="PAY ME"
-            TextColor="DodgerBlue" 
-            />
+            TextColor="DodgerBlue"
+            FontFamily="Lucky Boss"/>
         <Button
             Command="{Binding AddCommand}"
             Padding="20"

@@ -1,8 +1,9 @@
 ﻿using Xamarin.Forms;
 
-//[assembly: ExportFont("Fluo Gums.ttf")]
-//[assembly: ExportFont("Lucky Boss.ttf")]
-//[assembly: ExportFont("Sweet Chili.ttf")]
+[assembly: ExportFont("Lucky Boss.ttf")]
+[assembly: ExportFont("Sweet Chili.ttf")]
+[assembly: ExportFont("Ancient Medium.ttf")]
+[assembly: ExportFont("Bangers.ttf")]
 namespace PayMe
 {
     using PayMe.Views;
