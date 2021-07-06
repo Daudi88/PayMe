@@ -7,11 +7,13 @@ using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 using MvvmHelpers;
+using System.IO;
 
 namespace PayMe.ViewModels
 {
     public class AddPageViewModel : BaseViewModel
     {
+        string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "loans.txt");
         public ICommand CancelCommand { get; set; }
 
         private string nameInput;
@@ -59,7 +61,16 @@ namespace PayMe.ViewModels
             int.TryParse(AmountInput, out int amount);
             var loan = new Loan(amount) { Name = NameInput, Description = DescriptionInput };
             await App.Current.MainPage.DisplayAlert("Test", $"{loan.Name}\n{loan.Amount}\n{loan.Description}", "Ok");
+
+            var contents = new string[]
+            {
+                $"{NameInput},{AmountInput},{DescriptionInput}"
+            };
+
+            File.AppendAllLines(filePath, contents);
             await App.Current.MainPage.Navigation.PopModalAsync();
+
+
         }
     }
 }

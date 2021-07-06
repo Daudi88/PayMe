@@ -5,11 +5,16 @@ using System.ComponentModel;
 using System.Windows.Input;
 using Xamarin.Forms;
 using MvvmHelpers;
+using System.IO;
+using System;
+using System.Runtime.CompilerServices;
 
 namespace PayMe.ViewModels
 {
     public class MainPageViewModel : BaseViewModel
     {
+        string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "loans.txt");
+
 
         // An ObservableCollection listens to changes and updates itself in the view.
         private ObservableCollection<Loan> loans;
@@ -41,23 +46,34 @@ namespace PayMe.ViewModels
             }
         }
 
-        public ICommand AddCommand { get; private set; }
-        public ICommand LogOutCommand { get; private set; }
-
+        public ICommand AddCommand { get; }
+        public ICommand LogOutCommand { get; }
 
         public MainPageViewModel()
         {
-            Loans = new ObservableCollection<Loan>
-            {
-                new Loan(-250) { Name = "Sanjin", Description = "Pizza" },
-                new Loan(-150) { Name = "Sanjin", Description = "Cola" },
-                new Loan(-50) { Name = "Sanjin", Description = "Snus" },
-                new Loan(50) { Name = "Brorsan", Description = "NOCCO" }
-            };
-
+            Loans = new ObservableCollection<Loan>();
+            Loans = GetLoans();
 
             AddCommand = new Command(AddNewLoan);
             LogOutCommand = new Command(LogOut);
+        }
+
+        private ObservableCollection<Loan> GetLoans()
+        {
+            var loans = new ObservableCollection<Loan>();
+            if (File.Exists(filePath))
+            {
+                string[] input = File.ReadAllLines(filePath);
+
+                foreach (var item in input)
+                {
+                    var parts = item.Split(',');
+                    int.TryParse(parts[1], out int amount);
+                    var loan = new Loan(amount) { Name = parts[0], Description = parts[2] };
+                    loans.Insert(0, loan);
+                }
+            }
+            return loans;
         }
 
         /// <summary>
@@ -65,7 +81,7 @@ namespace PayMe.ViewModels
         /// </summary>
         public async void AddNewLoan()
         {
-            await App.Current.MainPage.Navigation.PushModalAsync(new AddPage());   
+            await App.Current.MainPage.Navigation.PushModalAsync(new AddPage());
         }
 
         /// <summary>
@@ -89,6 +105,11 @@ namespace PayMe.ViewModels
 
             await App.Current.MainPage.DisplayAlert("Details", selectedLoan.Description, "OK");
             selectedLoan = null;
+        }
+
+        public void TakeLoan(Loan loan)
+        {
+            Loans.Insert(0, loan);
         }
     }
 }
