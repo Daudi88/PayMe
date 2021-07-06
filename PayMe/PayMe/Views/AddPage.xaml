@@ -9,11 +9,11 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Vem vill du låna av/till?"/>
-            <Entry x:Name="nameEntry" Placeholder="Name"/>
+            <Entry Text="{Binding NameInput}" Placeholder="Name"/>
             <Label Text="Ange belopp:"/>
-            <Entry x:Name="amountEntry" Placeholder="Amount"/>
+            <Entry Text="{Binding AmountInput}" Placeholder="Amount"/>
             <Label Text="Lånbeskrivning:"/>
-            <Entry x:Name="descriptionEntry" Placeholder="Description"/>
+            <Entry Text="{Binding DescriptionInput}" Placeholder="Description"/>
             <Button Text="Cancel" Command="{Binding CancelCommand}"/>
             <Button Text="Save" Command="{Binding SaveCommand}" CommandParameter="nameEntry, amountEntry, descriptionEntry"/>
         </StackLayout>

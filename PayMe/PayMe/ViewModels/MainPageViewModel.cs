@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
 using Xamarin.Forms;
+using MvvmHelpers;
 
 namespace PayMe.ViewModels
 {

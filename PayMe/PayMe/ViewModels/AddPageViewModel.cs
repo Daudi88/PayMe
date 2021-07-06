@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
+using MvvmHelpers;
 
 namespace PayMe.ViewModels
 {
@@ -13,6 +14,26 @@ namespace PayMe.ViewModels
     {
         public ICommand CancelCommand { get; set; }
 
+        private string nameInput;
+        public string NameInput 
+        {
+            get => nameInput;
+            set => SetProperty(ref nameInput, value);
+        }
+
+        private string amountInput;
+        public string AmountInput
+        {
+            get => amountInput;
+            set => SetProperty(ref amountInput, value);
+        }
+
+        private string descriptionInput;
+        public string DescriptionInput
+        {
+            get => descriptionInput;
+            set => SetProperty(ref descriptionInput, value);
+        }
 
         public AddPageViewModel()
         {
@@ -20,14 +41,24 @@ namespace PayMe.ViewModels
             CancelCommand = new Command(Cancel);
         }
 
+        /// <summary>
+        /// Returns to mainpage without any info.
+        /// </summary>
         public async void Cancel()
         {
             await App.Current.MainPage.Navigation.PopModalAsync();
         }
         
         public ICommand SaveCommand { get; set; }
+
+        /// <summary>
+        /// Turns the entrys into a loan. And displays a alert with the information.
+        /// </summary>
         public async void Save()
         {
+            int.TryParse(AmountInput, out int amount);
+            var loan = new Loan(amount) { Name = NameInput, Description = DescriptionInput };
+            await App.Current.MainPage.DisplayAlert("Test", $"{loan.Name}\n{loan.Amount}\n{loan.Description}", "Ok");
             await App.Current.MainPage.Navigation.PopModalAsync();
         }
     }
