@@ -54,14 +54,10 @@ namespace PayMe.ViewModels
         public ICommand SaveCommand { get; set; }
 
         /// <summary>
-        /// Turns the entrys into a loan. And displays a alert with the information.
+        /// Saves the users inputs.
         /// </summary>
         public async void Save()
         {
-            int.TryParse(AmountInput, out int amount);
-            var loan = new Loan(amount) { Name = NameInput, Description = DescriptionInput };
-            await App.Current.MainPage.DisplayAlert("Test", $"{loan.Name}\n{loan.Amount}\n{loan.Description}", "Ok");
-
             var contents = new string[]
             {
                 $"{NameInput},{AmountInput},{DescriptionInput}"

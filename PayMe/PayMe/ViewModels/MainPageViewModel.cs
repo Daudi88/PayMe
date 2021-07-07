@@ -32,6 +32,9 @@ namespace PayMe.ViewModels
         }
 
         private Loan selectedLoan;
+        /// <summary>
+        /// 
+        /// </summary>
         public Loan SelectedLoan
         {
             get => selectedLoan;
@@ -57,7 +60,9 @@ namespace PayMe.ViewModels
             AddCommand = new Command(AddNewLoan);
             LogOutCommand = new Command(LogOut);
         }
-
+        /// <summary>
+        /// Reads from a text file and populates the list view
+        /// </summary>
         private ObservableCollection<Loan> GetLoans()
         {
             var loans = new ObservableCollection<Loan>();
@@ -105,11 +110,6 @@ namespace PayMe.ViewModels
 
             await App.Current.MainPage.DisplayAlert("Details", selectedLoan.Description, "OK");
             selectedLoan = null;
-        }
-
-        public void TakeLoan(Loan loan)
-        {
-            Loans.Insert(0, loan);
         }
     }
 }
