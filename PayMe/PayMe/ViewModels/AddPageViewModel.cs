@@ -8,12 +8,12 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using MvvmHelpers;
 using System.IO;
+using PayMe.Services;
 
 namespace PayMe.ViewModels
 {
     public class AddPageViewModel : BaseViewModel
     {
-        string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "loans.txt");
         public ICommand CancelCommand { get; set; }
 
         private string nameInput;
@@ -58,15 +58,8 @@ namespace PayMe.ViewModels
         /// </summary>
         public async void Save()
         {
-            var contents = new string[]
-            {
-                $"{NameInput},{AmountInput},{DescriptionInput}"
-            };
-
-            File.AppendAllLines(filePath, contents);
+            DataService.SaveLoan(NameInput, AmountInput, DescriptionInput);
             await App.Current.MainPage.Navigation.PopModalAsync();
-
-
         }
     }
 }

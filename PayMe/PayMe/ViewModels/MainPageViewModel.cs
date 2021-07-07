@@ -8,33 +8,21 @@ using MvvmHelpers;
 using System.IO;
 using System;
 using System.Runtime.CompilerServices;
+using PayMe.Services;
 
 namespace PayMe.ViewModels
 {
     public class MainPageViewModel : BaseViewModel
     {
-        string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "loans.txt");
-
-
         // An ObservableCollection listens to changes and updates itself in the view.
         private ObservableCollection<Loan> loans;
         public ObservableCollection<Loan> Loans
         {
             get => loans;
-            set
-            {
-                if (loans == value)
-                    return;
-
-                loans = value;
-                OnPropertyChanged(nameof(Loans));
-            }
+            set => SetProperty(ref loans, value);
         }
 
         private Loan selectedLoan;
-        /// <summary>
-        /// 
-        /// </summary>
         public Loan SelectedLoan
         {
             get => selectedLoan;
@@ -55,30 +43,10 @@ namespace PayMe.ViewModels
         public MainPageViewModel()
         {
             Loans = new ObservableCollection<Loan>();
-            Loans = GetLoans();
+            Loans = DataService.GetLoans();
 
             AddCommand = new Command(AddNewLoan);
             LogOutCommand = new Command(LogOut);
-        }
-        /// <summary>
-        /// Reads from a text file and populates the list view
-        /// </summary>
-        private ObservableCollection<Loan> GetLoans()
-        {
-            var loans = new ObservableCollection<Loan>();
-            if (File.Exists(filePath))
-            {
-                string[] input = File.ReadAllLines(filePath);
-
-                foreach (var item in input)
-                {
-                    var parts = item.Split(',');
-                    int.TryParse(parts[1], out int amount);
-                    var loan = new Loan(amount) { Name = parts[0], Description = parts[2] };
-                    loans.Insert(0, loan);
-                }
-            }
-            return loans;
         }
 
         /// <summary>
