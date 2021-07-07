@@ -20,7 +20,7 @@
             Padding="30"
             FontAttributes="Bold"
             FontFamily="Bangers"
-            FontSize="Title"
+            FontSize="40"
             Text="PAY ME"
             TextColor="DodgerBlue" />
         <Button

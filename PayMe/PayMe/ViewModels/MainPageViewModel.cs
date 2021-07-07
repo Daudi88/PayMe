@@ -41,7 +41,6 @@ namespace PayMe.ViewModels
         public MainPageViewModel()
         {
             Loans = new ObservableCollection<Loan>();
-            Loans = DataService.GetLoans();
 
             AddCommand = new Command(AddNewLoan);
             LogOutCommand = new Command(LogOut);
@@ -77,6 +76,14 @@ namespace PayMe.ViewModels
             }
 
             await App.Current.MainPage.DisplayAlert("Details", selectedLoan.Description, "OK");
+        }
+
+        /// <summary>
+        /// Method to get loans from DataServic
+        /// </summary>
+        public void GetLoans()
+        {
+            Loans = DataService.GetLoans();
         }
     }
 }
