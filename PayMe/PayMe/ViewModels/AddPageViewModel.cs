@@ -1,23 +1,17 @@
-﻿using PayMe.Models;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Text;
+﻿using MvvmHelpers;
+using PayMe.Services;
 using System.Windows.Input;
 using Xamarin.Forms;
-using MvvmHelpers;
-using System.IO;
-using PayMe.Services;
 
 namespace PayMe.ViewModels
 {
     public class AddPageViewModel : BaseViewModel
     {
-        public ICommand CancelCommand { get; set; }
+        public ICommand CancelCommand { get; }
+        public ICommand SaveCommand { get; }
 
         private string nameInput;
-        public string NameInput 
+        public string NameInput
         {
             get => nameInput;
             set => SetProperty(ref nameInput, value);
@@ -44,17 +38,15 @@ namespace PayMe.ViewModels
         }
 
         /// <summary>
-        /// Returns to mainpage without any info.
+        /// Returns to mainpage without any info being stored.
         /// </summary>
         public async void Cancel()
         {
             await App.Current.MainPage.Navigation.PopModalAsync();
         }
-        
-        public ICommand SaveCommand { get; set; }
 
         /// <summary>
-        /// Saves the users inputs.
+        /// Saves the user input.
         /// </summary>
         public async void Save()
         {

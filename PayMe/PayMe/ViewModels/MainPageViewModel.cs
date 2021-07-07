@@ -1,19 +1,18 @@
-﻿using PayMe.Models;
+﻿using MvvmHelpers;
+using PayMe.Models;
+using PayMe.Services;
 using PayMe.Views;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Windows.Input;
 using Xamarin.Forms;
-using MvvmHelpers;
-using System.IO;
-using System;
-using System.Runtime.CompilerServices;
-using PayMe.Services;
 
 namespace PayMe.ViewModels
 {
     public class MainPageViewModel : BaseViewModel
     {
+        public ICommand AddCommand { get; }
+        public ICommand LogOutCommand { get; }
+
         // An ObservableCollection listens to changes and updates itself in the view.
         private ObservableCollection<Loan> loans;
         public ObservableCollection<Loan> Loans
@@ -29,16 +28,15 @@ namespace PayMe.ViewModels
             set
             {
                 if (value == selectedLoan)
+                {
                     return;
+                }
 
                 selectedLoan = value;
                 OnPropertyChanged(nameof(SelectedLoan));
                 ItemSelected(SelectedLoan);
             }
         }
-
-        public ICommand AddCommand { get; }
-        public ICommand LogOutCommand { get; }
 
         public MainPageViewModel()
         {
@@ -74,10 +72,11 @@ namespace PayMe.ViewModels
         private async void ItemSelected(Loan selectedLoan)
         {
             if (selectedLoan == null)
+            {
                 return;
+            }
 
             await App.Current.MainPage.DisplayAlert("Details", selectedLoan.Description, "OK");
-            selectedLoan = null;
         }
     }
 }

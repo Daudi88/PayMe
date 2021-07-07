@@ -1,9 +1,7 @@
 ﻿using PayMe.Models;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Text;
 
 namespace PayMe.Services
 {
@@ -31,6 +29,11 @@ namespace PayMe.Services
             }
             return loans;
         }
+
+        /// <summary>
+        /// Saves the user input to a text file.
+        /// </summary>
+        /// <param name="loan">The user input.</param>
         public static void SaveLoan(params string[] loan)
         {
             var contents = new string[]

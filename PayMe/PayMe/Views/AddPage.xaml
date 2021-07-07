@@ -1,21 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:local="clr-namespace:PayMe.ViewModels"
-             x:Class="PayMe.Views.AddPage">
+<ContentPage
+    x:Class="PayMe.Views.AddPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:PayMe.ViewModels">
     <ContentPage.BindingContext>
-        <local:AddPageViewModel/>
+        <local:AddPageViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Vem vill du låna av/till?"/>
-            <Entry Text="{Binding NameInput}" Placeholder="Name"/>
-            <Label Text="Ange belopp:"/>
-            <Entry Text="{Binding AmountInput}" Placeholder="Amount"/>
-            <Label Text="Lånbeskrivning:"/>
-            <Entry Text="{Binding DescriptionInput}" Placeholder="Description"/>
-            <Button Text="Cancel" Command="{Binding CancelCommand}"/>
-            <Button Text="Save" Command="{Binding SaveCommand}" CommandParameter="nameEntry, amountEntry, descriptionEntry"/>
+            <Label Text="Vem vill du låna av/till?" />
+            <Entry Placeholder="Name" Text="{Binding NameInput}" />
+            <Label Text="Ange belopp:" />
+            <Entry Placeholder="Amount" Text="{Binding AmountInput}" />
+            <Label Text="Lånbeskrivning:" />
+            <Entry Placeholder="Description" Text="{Binding DescriptionInput}" />
+            <Button Command="{Binding CancelCommand}" Text="Cancel" />
+            <Button
+                Command="{Binding SaveCommand}"
+                CommandParameter="nameEntry, amountEntry, descriptionEntry"
+                Text="Save" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
