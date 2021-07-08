@@ -23,7 +23,7 @@
         </Grid.RowDefinitions>
         <StackLayout
             Grid.ColumnSpan="3"
-            BackgroundColor="DodgerBlue"
+            BackgroundColor="#005A9C"
             Orientation="Horizontal">
             <StackLayout VerticalOptions="Center">
                 <Label
