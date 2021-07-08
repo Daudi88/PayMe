@@ -2,6 +2,7 @@
 using PayMe.Models;
 using PayMe.Services;
 using PayMe.Views;
+using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -11,6 +12,7 @@ namespace PayMe.ViewModels
 {
     public class MainPageViewModel : BaseViewModel
     {
+        public Command<object> SelectedCommand { get; }
         public Command<Loan> DeleteCommand { get; }
         public ICommand AddCommand { get; }
 
@@ -35,7 +37,6 @@ namespace PayMe.ViewModels
 
                 selectedLoan = value;
                 OnPropertyChanged(nameof(SelectedLoan));
-                ItemSelected(SelectedLoan);
             }
         }
 
@@ -44,6 +45,7 @@ namespace PayMe.ViewModels
             Loans = new ObservableCollection<Loan>();
             DeleteCommand = new Command<Loan>(DeleteLoan);
             AddCommand = new Command(AddNewLoan);
+            SelectedCommand = new Command<object>(Selected);
         }
 
         /// <summary>
@@ -60,14 +62,16 @@ namespace PayMe.ViewModels
         /// some details right now)
         /// </summary>
         /// <param name="selectedLoan">The selected loan.</param>
-        private async void ItemSelected(Loan selectedLoan)
+        private async void Selected(object args)
         {
-            if (selectedLoan == null)
+            var loan = args as Loan;
+            if (loan == null)
             {
                 return;
             }
+            SelectedLoan = null;
 
-            await App.Current.MainPage.DisplayAlert("Details", selectedLoan.Description, "OK");
+            await App.Current.MainPage.DisplayAlert("Details", loan.Description, "OK");
         }
 
         /// <summary>

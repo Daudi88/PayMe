@@ -5,10 +5,17 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     xmlns:local="clr-namespace:PayMe.ViewModels"
-    ios:Page.UseSafeArea="True">
+    ios:Page.UseSafeArea="True"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    >
     <ContentPage.BindingContext>
         <local:MainPageViewModel />
     </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <xct:ItemSelectedEventArgsConverter x:Key="ItemSelectedEventArgsConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.7*" />
@@ -42,6 +49,12 @@
             ItemsSource="{Binding Loans}"
             SelectedItem="{Binding SelectedLoan, Mode=TwoWay}"
             SeparatorVisibility="None">
+            <ListView.Behaviors>
+                <xct:EventToCommandBehavior 
+                    EventName="ItemSelected" 
+                    Command="{Binding SelectedCommand}" 
+                    EventArgsConverter="{StaticResource ItemSelectedEventArgsConverter}"/>
+            </ListView.Behaviors>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
