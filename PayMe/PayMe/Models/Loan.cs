@@ -7,9 +7,10 @@
     public class Loan
     {
         public int Amount { get; set; }
+        public string AmountDisplay { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public string Color { get; set; } = "Green";
+        public string Color { get; set; }
 
         /// <summary>
         /// If loan amount is bigger then zero, the color will be red. Default is green.
@@ -18,12 +19,17 @@
         /// <param name="amount"></param>
         public Loan(int amount)
         {
-            if (amount < 0)
+            Amount = amount;
+            if (amount > 0)
+            {
+                Color = "Green";
+                AmountDisplay = $"+{Amount}";
+            }
+            else
             {
                 Color = "Red";
+                AmountDisplay = $"{Amount}";
             }
-
-            Amount = amount;
         }
     }
 }

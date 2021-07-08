@@ -40,7 +40,7 @@
             Grid.ColumnSpan="3"
             Margin="50"
             ItemsSource="{Binding Loans}"
-            SelectedItem="{Binding SelectedLoan}"
+            SelectedItem="{Binding SelectedLoan, Mode=TwoWay}"
             SeparatorVisibility="None">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -55,7 +55,7 @@
                         <StackLayout Orientation="Horizontal">
                             <Label
                                 FontFamily="Lucky Boss"
-                                FontSize="Large"
+                                FontSize="25"
                                 HorizontalOptions="StartAndExpand"
                                 Text="{Binding Name}"
                                 TextColor="Black"
@@ -63,7 +63,7 @@
                             <Label
                                 FontFamily="Sweet Chili"
                                 FontSize="Large"
-                                Text="{Binding Amount}"
+                                Text="{Binding AmountDisplay}"
                                 TextColor="{Binding Color}"
                                 VerticalOptions="Center" />
                         </StackLayout>

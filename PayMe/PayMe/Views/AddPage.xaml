@@ -18,12 +18,12 @@
             <Entry Placeholder="Amount..." Text="{Binding AmountInput}" FontFamily="Lucky Boss" Margin="20, 0"/>
             <Label FontSize="Large" Text="Enter loan description:" FontFamily="Lucky Boss" TextColor="Black" Padding="20, 0"/>
             <Entry Placeholder="Description..." Text="{Binding DescriptionInput}" FontFamily="Lucky Boss" Margin="20, 0"/>
-            <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+            <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal" Margin="20" Spacing="20">
                 <Button
-                    Command="{Binding SaveCommand}"
+                    Command="{Binding SaveCommand}" BackgroundColor="DodgerBlue" TextColor="White"
                     CommandParameter="nameEntry, amountEntry, descriptionEntry"
                     Text="Save" FontFamily="Lucky Boss" />
-                <Button Command="{Binding CancelCommand}" Text="Cancel" FontFamily="Lucky Boss" />
+                <Button Command="{Binding CancelCommand}" Text="Cancel" FontFamily="Lucky Boss" BackgroundColor="DodgerBlue" TextColor="White"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
