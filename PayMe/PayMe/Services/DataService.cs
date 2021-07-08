@@ -1,5 +1,6 @@
 ﻿using PayMe.Models;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 
@@ -42,6 +43,20 @@ namespace PayMe.Services
             };
 
             File.AppendAllLines(FilePath, contents);
+        }
+
+        /// <summary>
+        /// Overwriting the file with the new list of loans.
+        /// </summary>
+        /// <param name="loans">The list of loans.</param>
+        public static void DeleteLoan(ObservableCollection<Loan> loans)
+        {
+            var content = new List<string>();
+            foreach (var loan in loans)
+            {
+                content.Add($"{loan.Name},{loan.Amount},{loan.Description}");
+            }
+            File.WriteAllLines(FilePath, content);
         }
     }
 }

@@ -3,6 +3,7 @@ using PayMe.Models;
 using PayMe.Services;
 using PayMe.Views;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -10,6 +11,7 @@ namespace PayMe.ViewModels
 {
     public class MainPageViewModel : BaseViewModel
     {
+        public Command<Loan> DeleteCommand { get; }
         public ICommand AddCommand { get; }
         public ICommand LogOutCommand { get; }
 
@@ -41,7 +43,7 @@ namespace PayMe.ViewModels
         public MainPageViewModel()
         {
             Loans = new ObservableCollection<Loan>();
-
+            DeleteCommand = new Command<Loan>(DeleteLoan);
             AddCommand = new Command(AddNewLoan);
             LogOutCommand = new Command(LogOut);
         }
@@ -84,6 +86,16 @@ namespace PayMe.ViewModels
         public void GetLoans()
         {
             Loans = DataService.GetLoans();
+        }
+
+        /// <summary>
+        /// Method to remove a loan from the list.
+        /// </summary>
+        /// <param name="loan">The loan to remove.</param>
+        void DeleteLoan(Loan loan)
+        {
+            Loans.Remove(loan);
+            DataService.DeleteLoan(Loans);
         }
     }
 }

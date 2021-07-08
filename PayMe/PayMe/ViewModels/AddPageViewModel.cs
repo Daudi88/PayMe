@@ -53,5 +53,7 @@ namespace PayMe.ViewModels
             DataService.SaveLoan(NameInput, AmountInput, DescriptionInput);
             await App.Current.MainPage.Navigation.PopModalAsync();
         }
+
+
     }
 }

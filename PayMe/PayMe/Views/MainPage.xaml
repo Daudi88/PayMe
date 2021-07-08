@@ -44,6 +44,9 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem IsDestructive="True" Text="Delete" Command="{Binding Source={x:Reference listView}, Path=BindingContext.DeleteCommand}" CommandParameter="{Binding .}"/>
+                        </ViewCell.ContextActions>
                         <StackLayout Orientation="Horizontal">
                             <Label
                                 FontFamily="Lucky Boss"
