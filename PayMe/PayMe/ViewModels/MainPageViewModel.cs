@@ -13,7 +13,6 @@ namespace PayMe.ViewModels
     {
         public Command<Loan> DeleteCommand { get; }
         public ICommand AddCommand { get; }
-        public ICommand LogOutCommand { get; }
 
         // An ObservableCollection listens to changes and updates itself in the view.
         private ObservableCollection<Loan> loans;
@@ -45,7 +44,6 @@ namespace PayMe.ViewModels
             Loans = new ObservableCollection<Loan>();
             DeleteCommand = new Command<Loan>(DeleteLoan);
             AddCommand = new Command(AddNewLoan);
-            LogOutCommand = new Command(LogOut);
         }
 
         /// <summary>
@@ -54,14 +52,6 @@ namespace PayMe.ViewModels
         public async void AddNewLoan()
         {
             await App.Current.MainPage.Navigation.PushModalAsync(new AddPage());
-        }
-
-        /// <summary>
-        /// Logs the user out (Not fully implemented yet. Shows an alert right now).
-        /// </summary>
-        public async void LogOut()
-        {
-            await App.Current.MainPage.DisplayAlert("Logout", "Coming soon...", "OK");
         }
 
         /// <summary>

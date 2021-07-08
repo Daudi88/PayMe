@@ -15,24 +15,25 @@
             <RowDefinition Height="3*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <Label
-            Grid.ColumnSpan="2"
-            Padding="30"
-            FontAttributes="Bold"
-            FontFamily="Bangers"
-            FontSize="40"
-            Text="PAY ME"
-            TextColor="DodgerBlue" />
-        <Button
-            x:Name="addButton"
-            Grid.Column="2"
-            Padding="20"
-            BackgroundColor="Transparent"
-            Command="{Binding AddCommand}"
-            FontFamily="Sweet Chili"
-            FontSize="45"
-            Text="+"
-            VerticalOptions="Start" />
+        <StackLayout BackgroundColor="DodgerBlue" Grid.ColumnSpan="3" Orientation="Horizontal">
+            <Label
+                Padding="30"
+                FontAttributes="Bold"
+                FontFamily="Bangers"
+                FontSize="40"
+                Text="PAY ME "
+                TextColor="White" 
+                />
+            <Button
+                Padding="40, 20"
+                BackgroundColor="Transparent"
+                Command="{Binding AddCommand}"
+                FontFamily="Sweet Chili"
+                FontSize="40"
+                Text="+ "
+                TextColor="White"
+                HorizontalOptions="EndAndExpand"/>
+        </StackLayout>
         <ListView
             x:Name="listView"
             Grid.Row="1"
@@ -45,7 +46,11 @@
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.ContextActions>
-                            <MenuItem IsDestructive="True" Text="Delete" Command="{Binding Source={x:Reference listView}, Path=BindingContext.DeleteCommand}" CommandParameter="{Binding .}"/>
+                            <MenuItem
+                                Command="{Binding Source={x:Reference listView}, Path=BindingContext.DeleteCommand}"
+                                CommandParameter="{Binding .}"
+                                IsDestructive="True"
+                                Text="Delete" />
                         </ViewCell.ContextActions>
                         <StackLayout Orientation="Horizontal">
                             <Label
@@ -66,11 +71,5 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button
-            x:Name="logoutButton"
-            Grid.Row="2"
-            Grid.Column="1"
-            Command="{Binding LogOutCommand}"
-            Text="Logout" />
     </Grid>
 </ContentPage>
