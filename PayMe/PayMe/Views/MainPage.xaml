@@ -5,15 +5,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     xmlns:local="clr-namespace:PayMe.ViewModels"
-    ios:Page.UseSafeArea="True"
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-    >
+    ios:Page.UseSafeArea="True">
     <ContentPage.BindingContext>
         <local:MainPageViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Resources>
         <ResourceDictionary>
-            <xct:ItemSelectedEventArgsConverter x:Key="ItemSelectedEventArgsConverter"/>
+            <xct:ItemSelectedEventArgsConverter x:Key="ItemSelectedEventArgsConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
     <Grid>
@@ -22,38 +21,49 @@
             <RowDefinition Height="3*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <StackLayout BackgroundColor="DodgerBlue" Grid.ColumnSpan="3" Orientation="Horizontal">
-            <Label
-                Padding="30"
-                FontAttributes="Bold"
-                FontFamily="Bangers"
-                FontSize="40"
-                Text="PAY ME "
-                TextColor="White" 
-                />
+        <StackLayout
+            Grid.ColumnSpan="3"
+            BackgroundColor="DodgerBlue"
+            Orientation="Horizontal">
+            <StackLayout VerticalOptions="Center">
+                <Label
+                    Padding="40,0,0,-10"
+                    FontAttributes="Bold"
+                    FontFamily="Bangers"
+                    FontSize="40"
+                    Text="PAY ME "
+                    TextColor="White"
+                    VerticalTextAlignment="Center" />
+                <Label
+                    FontFamily="Caveat-Medium"
+                    FontSize="Large"
+                    Text="And I'll Pay You"
+                    TextColor="Red" 
+                    Padding="60, -5, 0, 0"/>
+            </StackLayout>
             <Button
-                Padding="40, 20"
+                Padding="0,0,30,0"
                 BackgroundColor="Transparent"
                 Command="{Binding AddCommand}"
-                FontFamily="Sweet Chili"
-                FontSize="40"
+                FontFamily="Caveat-Bold"
+                FontSize="50"
+                HorizontalOptions="EndAndExpand"
                 Text="+ "
-                TextColor="White"
-                HorizontalOptions="EndAndExpand"/>
+                TextColor="White" />
         </StackLayout>
         <ListView
             x:Name="listView"
             Grid.Row="1"
             Grid.ColumnSpan="3"
-            Margin="50"
+            Margin="30"
             ItemsSource="{Binding Loans}"
             SelectedItem="{Binding SelectedLoan, Mode=TwoWay}"
             SeparatorVisibility="None">
             <ListView.Behaviors>
-                <xct:EventToCommandBehavior 
-                    EventName="ItemSelected" 
-                    Command="{Binding SelectedCommand}" 
-                    EventArgsConverter="{StaticResource ItemSelectedEventArgsConverter}"/>
+                <xct:EventToCommandBehavior
+                    Command="{Binding SelectedCommand}"
+                    EventArgsConverter="{StaticResource ItemSelectedEventArgsConverter}"
+                    EventName="ItemSelected" />
             </ListView.Behaviors>
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -67,18 +77,19 @@
                         </ViewCell.ContextActions>
                         <StackLayout Orientation="Horizontal">
                             <Label
-                                FontFamily="Lucky Boss"
-                                FontSize="25"
+                                FontFamily="Caveat-SemiBold"
+                                FontSize="30"
                                 HorizontalOptions="StartAndExpand"
                                 Text="{Binding Name}"
                                 TextColor="Black"
                                 VerticalOptions="Center" />
                             <Label
-                                FontFamily="Sweet Chili"
-                                FontSize="Large"
+                                FontFamily="Caveat-Bold"
+                                FontSize="30"
                                 Text="{Binding AmountDisplay}"
                                 TextColor="{Binding Color}"
-                                VerticalOptions="Center" />
+                                VerticalOptions="Center"
+                                VerticalTextAlignment="Center" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

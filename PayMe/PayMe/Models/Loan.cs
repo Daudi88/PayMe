@@ -23,12 +23,12 @@
             if (amount > 0)
             {
                 Color = "Green";
-                AmountDisplay = $"+{Amount}";
+                AmountDisplay = $"+{Amount} ";
             }
             else
             {
                 Color = "Red";
-                AmountDisplay = $"{Amount}";
+                AmountDisplay = $"{Amount} ";
             }
         }
     }

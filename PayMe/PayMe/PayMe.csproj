@@ -12,6 +12,10 @@
 
   <ItemGroup>
     <None Remove="Resources\Fonts\Bangers.ttf" />
+    <None Remove="Resources\Fonts\Caveat-Bold.ttf" />
+    <None Remove="Resources\Fonts\Caveat-Medium.ttf" />
+    <None Remove="Resources\Fonts\Caveat-Regular.ttf" />
+    <None Remove="Resources\Fonts\Caveat-SemiBold.ttf" />
     <None Remove="Resources\Fonts\Fluo Gums.ttf" />
     <None Remove="Resources\Fonts\Lucky Boss.ttf" />
     <None Remove="Resources\Fonts\Sweet Chili.ttf" />
@@ -19,6 +23,10 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\Fonts\Bangers.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Caveat-Bold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Caveat-Medium.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Caveat-Regular.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Caveat-SemiBold.ttf" />
     <EmbeddedResource Include="Resources\Fonts\Fluo Gums.ttf" />
     <EmbeddedResource Include="Resources\Fonts\Lucky Boss.ttf" />
     <EmbeddedResource Include="Resources\Fonts\Sweet Chili.ttf" />

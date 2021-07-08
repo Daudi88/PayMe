@@ -2,7 +2,10 @@
 
 [assembly: ExportFont("Lucky Boss.ttf")]
 [assembly: ExportFont("Sweet Chili.ttf")]
-[assembly: ExportFont("Ancient Medium.ttf")]
+[assembly: ExportFont("Caveat-Regular.ttf")]
+[assembly: ExportFont("Caveat-Bold.ttf")]
+[assembly: ExportFont("Caveat-Medium.ttf")]
+[assembly: ExportFont("Caveat-SemiBold.ttf")]
 [assembly: ExportFont("Bangers.ttf")]
 namespace PayMe
 {

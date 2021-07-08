@@ -9,21 +9,21 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout BackgroundColor="DodgerBlue" Padding="20" Margin="0, 0, 0, 20">
+            <StackLayout BackgroundColor="DodgerBlue" Padding="20, 30" Margin="0, 0, 0, 20" >
                 <Label Text="Add new loan" FontFamily="Bangers" TextColor="White" FontSize="40"/>
             </StackLayout>
-            <Label FontSize="Large" Text="Who do you want to lend to/borrow from?" FontFamily="Lucky Boss" TextColor="Black" Padding="20, 0"/>
-            <Entry Placeholder="Name..." Text="{Binding NameInput}" FontFamily="Lucky Boss" Margin="20, 0"/>
-            <Label FontSize="Large" Text="Enter amount (put a - first if you are borroring)" TextColor="Black" FontFamily="Lucky Boss" Padding="20, 0"/>
-            <Entry Placeholder="Amount..." Text="{Binding AmountInput}" FontFamily="Lucky Boss" Margin="20, 0"/>
-            <Label FontSize="Large" Text="Enter loan description:" FontFamily="Lucky Boss" TextColor="Black" Padding="20, 0"/>
-            <Entry Placeholder="Description..." Text="{Binding DescriptionInput}" FontFamily="Lucky Boss" Margin="20, 0"/>
+            <Label FontSize="Large" Text="Who do you want to lend to/borrow from?" FontFamily="Caveat-SemiBold" TextColor="Black" Padding="20, 0"/>
+            <Entry Placeholder="Name..." Text="{Binding NameInput}" FontFamily="Caveat-Medium" Margin="20, 0"/>
+            <Label FontSize="Large" Text="Enter amount (put a - first if you are borroring)" TextColor="Black" FontFamily="Caveat-SemiBold" Padding="20, 0"/>
+            <Entry Placeholder="Amount..." Text="{Binding AmountInput}" FontFamily="Caveat-Medium" Margin="20, 0"/>
+            <Label FontSize="Large" Text="Enter loan description:" FontFamily="Caveat-SemiBold" TextColor="Black" Padding="20, 0"/>
+            <Entry Placeholder="Description..." Text="{Binding DescriptionInput}" FontFamily="Caveat-Medium" Margin="20, 0"/>
             <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal" Margin="20" Spacing="20">
                 <Button
                     Command="{Binding SaveCommand}" BackgroundColor="DodgerBlue" TextColor="White"
                     CommandParameter="nameEntry, amountEntry, descriptionEntry"
-                    Text="Save" FontFamily="Lucky Boss" />
-                <Button Command="{Binding CancelCommand}" Text="Cancel" FontFamily="Lucky Boss" BackgroundColor="DodgerBlue" TextColor="White"/>
+                    Text="Save" FontFamily="Caveat-Medium" />
+                <Button Command="{Binding CancelCommand}" Text="Cancel" FontFamily="Caveat-Medium" BackgroundColor="DodgerBlue" TextColor="White"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

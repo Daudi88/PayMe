@@ -50,7 +50,8 @@ namespace PayMe.ViewModels
         /// </summary>
         public async void Save()
         {
-            DataService.SaveLoan(NameInput, AmountInput, DescriptionInput);
+            var name = NameInput + " ";
+            DataService.SaveLoan(name, AmountInput, DescriptionInput);
             await App.Current.MainPage.Navigation.PopModalAsync();
         }
 
